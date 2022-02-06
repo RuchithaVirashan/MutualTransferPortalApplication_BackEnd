@@ -1,10 +1,14 @@
 package edu.miniProject.mutualTransferPortal.controller;
 
+import edu.miniProject.mutualTransferPortal.exception.UserNotFoundException;
 import edu.miniProject.mutualTransferPortal.model.Role;
 import edu.miniProject.mutualTransferPortal.model.User;
 import edu.miniProject.mutualTransferPortal.model.UserRole;
 import edu.miniProject.mutualTransferPortal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
@@ -12,15 +16,23 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "*")
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     //create user
     @PostMapping
     public User createUser(@RequestBody User user) throws Exception {
+
+//        user.setProfilePic("default.png");
+        //encoding password with bcryptpasswordencoder
+        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
+
 
         Set<UserRole> roles=new HashSet<>();
 
@@ -46,4 +58,10 @@ public class UserController {
     public void deleteUser(@PathVariable("userId") Long userId){
         this.userService.deleteUser(userId);
     }
+
+//    //update api
+//    @ExceptionHandler(UserNotFoundException.class)
+//    public ResponseEntity<?> exceptionHandler(UserNotFoundException ex){
+//        return new ResponseEntity<>(ex, HttpStatus.BAD_REQUEST);
+//    }
 }
