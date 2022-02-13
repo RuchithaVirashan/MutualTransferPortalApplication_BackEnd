@@ -1,5 +1,6 @@
 package edu.miniProject.mutualTransferPortal.controller;
 
+import edu.miniProject.mutualTransferPortal.exception.UserFoundException;
 import edu.miniProject.mutualTransferPortal.exception.UserNotFoundException;
 import edu.miniProject.mutualTransferPortal.model.Role;
 import edu.miniProject.mutualTransferPortal.model.User;
@@ -59,9 +60,9 @@ public class UserController {
         this.userService.deleteUser(userId);
     }
 
-//    //update api
-//    @ExceptionHandler(UserNotFoundException.class)
-//    public ResponseEntity<?> exceptionHandler(UserNotFoundException ex){
-//        return new ResponseEntity<>(ex, HttpStatus.BAD_REQUEST);
-//    }
+    //update api
+    @ExceptionHandler(UserFoundException.class)
+    public ResponseEntity<?> exceptionHandler(UserFoundException ex){
+        return new ResponseEntity<>(ex, HttpStatus.BAD_REQUEST);
+    }
 }

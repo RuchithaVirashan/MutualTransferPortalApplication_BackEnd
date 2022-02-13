@@ -14,7 +14,7 @@
 	<name>mutualTransferPortal</name>
 	<description>web application for managing mutual transfers within the government sector and university students.</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

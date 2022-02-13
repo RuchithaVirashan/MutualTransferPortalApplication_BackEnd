@@ -1,5 +1,7 @@
 package edu.miniProject.mutualTransferPortal.service.implement;
 
+import edu.miniProject.mutualTransferPortal.exception.UserFoundException;
+import edu.miniProject.mutualTransferPortal.exception.UserNotFoundException;
 import edu.miniProject.mutualTransferPortal.model.User;
 import edu.miniProject.mutualTransferPortal.model.UserRole;
 import edu.miniProject.mutualTransferPortal.repository.RoleRepository;
@@ -23,7 +25,7 @@ public class UserServiceImplement implements UserService {
         User local = this.userRepository.findByUsername(user.getUsername());
         if (local != null){
             System.out.println("User is already there !!!");
-            throw new Exception("User already present !!!");
+            throw new UserFoundException();
         } else{
             //user create
             for(UserRole ur: userRoles){

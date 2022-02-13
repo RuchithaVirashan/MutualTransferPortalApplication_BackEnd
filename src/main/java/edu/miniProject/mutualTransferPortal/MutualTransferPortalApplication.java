@@ -1,5 +1,6 @@
 package edu.miniProject.mutualTransferPortal;
 
+import edu.miniProject.mutualTransferPortal.exception.UserFoundException;
 import edu.miniProject.mutualTransferPortal.model.Role;
 import edu.miniProject.mutualTransferPortal.model.User;
 import edu.miniProject.mutualTransferPortal.model.UserRole;
@@ -28,30 +29,33 @@ public class MutualTransferPortalApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception{
-		System.out.println("starting code");
+	public void run(String... args) throws Exception {
+//		try {
+//			System.out.println("starting code");
+//
+//			User user = new User();
+//
+//			user.setUsername("ruchi123");
+//			user.setPassword(this.bCryptPasswordEncoder.encode("abc"));
+//			user.setDesignation("Teacher");
+//
+//			Role role = new Role();
+//			role.setRoleId(43L);
+//			role.setRoleName("ADMIN");
+//
+//			Set<UserRole> userRoleSet = new HashSet<>();
+//			UserRole userRole = new UserRole();
+//			userRole.setRole(role);
+//			userRole.setUser(user);
+//			userRoleSet.add(userRole);
+//
+//			User user1 = this.userService.createUser(user, userRoleSet);
+//			System.out.println(user1.getUsername());
+//		} catch (UserFoundException e){
+//			e.printStackTrace();
+//		}
 
-//		User user= new User();
-//
-//		user.setUsername("ruchi123");
-//		user.setPassword(this.bCryptPasswordEncoder.encode("abc"));
-//		user.setDesignation("Teacher");
-//
-//		Role role =new Role();
-//		role.setRoleId(43L);
-//		role.setRoleName("ADMIN");
-//
-//		Set<UserRole> userRoleSet=new HashSet<>();
-//		UserRole userRole = new UserRole();
-//		userRole.setRole(role);
-//		userRole.setUser(user);
-//		userRoleSet.add(userRole);
-//
-//		User user1=this.userService.createUser(user, userRoleSet);
-//		System.out.println(user1.getUsername());
 	}
-
-
 
 
 }

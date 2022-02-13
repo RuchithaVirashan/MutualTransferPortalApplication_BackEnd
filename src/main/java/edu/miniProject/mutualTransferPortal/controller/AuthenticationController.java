@@ -4,6 +4,7 @@ import edu.miniProject.mutualTransferPortal.config.JwtUtils;
 import edu.miniProject.mutualTransferPortal.exception.UserNotFoundException;
 import edu.miniProject.mutualTransferPortal.model.JwtRequest;
 import edu.miniProject.mutualTransferPortal.model.JwtResponce;
+import edu.miniProject.mutualTransferPortal.model.User;
 import edu.miniProject.mutualTransferPortal.service.implement.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +14,12 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @RestController
+@CrossOrigin("*")
 public class AuthenticationController {
 
     @Autowired
@@ -62,6 +64,12 @@ public class AuthenticationController {
             throw new Exception("Inavalid credentials" +e.getMessage());
         }
 
+    }
+
+    //return the details of current user
+    @GetMapping("/current-user")
+    public User getCurrentUser(Principal principal){
+        return ((User) this.userDetailsService.loadUserByUsername(principal.getName()));
     }
 
 }

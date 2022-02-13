@@ -1,10 +1,10 @@
 package edu.miniProject.mutualTransferPortal.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+public class UserNotFoundException extends Exception {
 
-@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class UserNotFoundException extends RuntimeException {
+    public UserNotFoundException(){
+        super("User with this User name is not found in DB!!");
+    }
     public UserNotFoundException(String message){
         super(message);
     }
