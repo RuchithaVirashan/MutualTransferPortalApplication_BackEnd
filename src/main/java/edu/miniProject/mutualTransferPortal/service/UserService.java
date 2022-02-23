@@ -1,5 +1,6 @@
 package edu.miniProject.mutualTransferPortal.service;
 
+import edu.miniProject.mutualTransferPortal.model.Post;
 import edu.miniProject.mutualTransferPortal.model.User;
 import edu.miniProject.mutualTransferPortal.model.UserRole;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,9 @@ public interface UserService {
     //get User by username
     public User getUser(String username);
 
+    public Set<User> getUser();
+
     //delete user by Id
     void deleteUser(Long userId);
+
 }

@@ -28,11 +28,6 @@ public class PostController {
         return this.postService.getPost(postId);
     }
 
-//    @GetMapping("/{username}")
-//    public Post getPost(@PathVariable("username") String username){
-//        return  this.postService.getPost(username);
-//    }
-
     //get all post
     @GetMapping
     public ResponseEntity<?> getPost(){

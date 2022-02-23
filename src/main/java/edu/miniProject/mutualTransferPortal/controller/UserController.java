@@ -55,10 +55,15 @@ public class UserController {
         return  this.userService.getUser(username);
     }
 
+    //get all user
+    @GetMapping
+    public ResponseEntity<?> getUser(){return ResponseEntity.ok(this.userService.getUser());}
+
     @DeleteMapping("/{userId}")
     public void deleteUser(@PathVariable("userId") Long userId){
         this.userService.deleteUser(userId);
     }
+
 
     //update api
     @ExceptionHandler(UserFoundException.class)

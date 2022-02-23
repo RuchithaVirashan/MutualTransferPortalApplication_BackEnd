@@ -13,9 +13,6 @@ public interface PostService {
 
     public Set<Post> getPost();
 
-    //get Post by username
-//    public Post getPost(String username);
-
     public Post getPost(Long postId);
 
     public void deletePost(Long postId);

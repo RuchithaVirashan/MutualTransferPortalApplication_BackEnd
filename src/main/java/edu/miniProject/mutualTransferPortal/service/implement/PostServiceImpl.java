@@ -35,11 +35,6 @@ public class PostServiceImpl implements PostService {
         return this.postRepository.findById(postId).get();
     }
 
-//    @Override
-//    public Post getPost(String username) {
-//        return this.postRepository.findByUsername(username);
-//    }
-
     @Override
     public void deletePost(Long postId) {
         Post post = new Post();

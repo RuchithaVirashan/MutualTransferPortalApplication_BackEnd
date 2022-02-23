@@ -2,6 +2,7 @@ package edu.miniProject.mutualTransferPortal.service.implement;
 
 import edu.miniProject.mutualTransferPortal.exception.UserFoundException;
 import edu.miniProject.mutualTransferPortal.exception.UserNotFoundException;
+import edu.miniProject.mutualTransferPortal.model.Post;
 import edu.miniProject.mutualTransferPortal.model.User;
 import edu.miniProject.mutualTransferPortal.model.UserRole;
 import edu.miniProject.mutualTransferPortal.repository.RoleRepository;
@@ -10,6 +11,7 @@ import edu.miniProject.mutualTransferPortal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Service
@@ -44,7 +46,11 @@ public class UserServiceImplement implements UserService {
     }
 
     @Override
+    public Set<User> getUser() {return new LinkedHashSet<>(this.userRepository.findAll());}
+
+    @Override
     public void deleteUser(Long userId) {
         this.userRepository.deleteById(userId);
     }
+
 }
