@@ -18,4 +18,4 @@ This is a Spring Boot for a fake Mutual transfer application website to go along
 
 For building and running the application you need:
 
-[JDK 17](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [JDK 17](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
