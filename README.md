@@ -1,7 +1,6 @@
 # MutualTransferPortalApplication_BackEnd :blossom:
 
-This is a Spring Boot for a fake Mutual transfer application website to go along with [this]
-(https://github.com/RuchithaVirashan/MutualTransferPortalApplication_FrontEnd) frontend.
+This is a Spring Boot for a fake Mutual transfer application website to go along with [this](https://github.com/RuchithaVirashan/MutualTransferPortalApplication_FrontEnd) frontend.
 
 ## Technologies :man_scientist:
 
